@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>신일기업</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--<script type="text/javascript" src="js/prefixfree.min.js"></script>-->
+     <script src="js/jquery-3.4.1.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+             
+             var visual = $('#brandVisual > ul > li');
+             var button = $('#buttonList > ul > li');
+             var current = 0;
+             var setIntervalid;
+             
+             button.on({
+                 click:function(){
+                     var tg = $(this);
+                     var i = tg.index();
+                     button.removeClass('on'); //버튼이 2번째로 넘어가는 구간
+                     tg.addClass('on');
+                     move(i);
+                 }
+             });
+             
+             function move(i){
+                 if(current == i) return;
+                 
+                 var current1 = visual.eq(current); // 지금 보여지고 있는
+                 var next1 = visual.eq(i); // 보여져야될
+                 
+                 current1.css({left:0}).stop().animate({left:'-100%'}); // 치워야 될 개채
+                 next1.css({left:'100%'}).stop().animate({left:0}); // 앞으로 볼 개채
+                 
+                 current = i;
+             }
+             
+             $("#wrap").on ({
+                 mouseover:function(){
+                     clearInterval(setIntervalid);
+                 },
+                 mouseout:function(){
+                     timer();
+                 }
+             });
+             
+             function timer(){
+                 setIntervalid = setInterval(function(){
+                     var n = current + 1;
+                     if(n == visual.length){
+                         n = 0;
+                     }
+                     button.eq(n).trigger('click');
+                 },300000);
+             }
+             
+             
+                 
+            $("#next").on({
+                click:function(){
+                    var i = current + 1;
+                    if(i > visual.length -1 ) i =0;
+                    
+                    button.eq(i).trigger('click');
+                    move(i);
+                }
+            });
+                 
+            $("#pre").on({
+                click:function(){
+                    var i = current - 1;
+                    if( i < 0 ) i = visual.length() -1;
+                    
+                    button.eq(i).trigger('click');
+                    move(i);
+                }
+            });
+                 
+         });
+    </script>
+    
+    <style>
+        header { position: relative; width: 100%; background: white; z-index: 100;}
+        header > nav { position: absolute; left:0; top:0; width: 100%; z-index: 100;}
+        header > nav > ul::after { content: ""; display: block; clear: both;}
+        header > nav > ul:hover { background: white;}
+        header > nav > ul:hover li { color:black; }
+        header > nav > ul { width: 100%; height: 80px;}
+        header > nav > ul > .Logo:hover { border: none;}
+        header > nav > ul > li:hover { color:#0018a8; border-bottom: 3px solid #f6891f; }
+        header > nav > ul > li { float: left; width: 20%; cursor: pointer; color:white; font-size: 20px; text-align: center; height: 80px; line-height: 80px; color:white;}
+        header > nav > ul > li > ul { display: none; background: #a2a2a2; width: 100%; position: absolute; left:0;}
+        header > nav > ul > li > ul::after { content: ""; display: block; clear: both;}
+        header > nav > ul > li > ul > li { float: left; width: 33.3%;}
+        header > nav > ul > li > ul > li > a:hover { color:#f6891f;}
+        header > nav > ul > li:hover ul{ display: block; z-index: 250;}
+        #Banner { width: 100%;}
+        #Banner > img { width: 100%; max-height: 1080px;}
+        
+        #Banner #Banner-Text { position: absolute; top:30%; z-index: 100; left:30%; background:rgba(3, 77, 152, 0.8)}
+        #Banner #Banner-Text > h1 { font-size: 72px; position: relative; right:20%; padding-top: 3%; color:white;}
+        #Banner #Banner-Text > h2 { color:#f6891f; margin-bottom: 8%; position: relative; right:20%;}
+        #Banner #Banner-Text > p { margin-top: 2%; color:white; position: relative; right:20%;}
+        #Banner #Banner-Text > .length { padding-bottom: 8%;}
+         #Banner #brandVisual { position: relative; width: 100%; height: 1080px; margin:0 auto; overflow: hidden; background: #8c908c;}
+         #Banner #brandVisual ul {position: relative; float: left; width:100%; height: 1080px; margin: 0px; padding: 0px;}
+         #Banner #brandVisual li { position: absolute; width: 100%; height: 1080px;}
+         #Banner #brandVisual li a { display: block; text-indent: -99999px;}
+         #Banner #brandVisual .visual01 { left:0px; background:url("images/Banner02.jpg") 50% 0 no-repeat; background-size: cover;}
+         #Banner #brandVisual .visual02 { left:100%; background:url("images/Banner05.jpg") 50% 0 no-repeat; background-size: cover;}
+         #Banner #brandVisual .visual03 { left:200%; background:url("images/Banner03.jpg") 50% 0 no-repeat; background-size: cover;}
+         #Banner #buttonList:after{content: ""; display: block; clear: both;}
+         #Banner #buttonList li{ background: url("images/btnVisual.png")0 -16px no-repeat; width: 14px; height: 15px; float: left; position: relative; left:50%; top:-145px; overflow: hidden; margin: 0 5px; cursor:pointer; display: none;}
+         #Banner #buttonList li.on{background-position: 0 0;}
+         #Banner #buttonList li.a{display: block; text-indent: -999px;}
+         #Banner #next { position: absolute; top:43%; right:30px;}
+         #Banner #pre { position: absolute; top:43%; left:30px;}
+         #Banner .next { text-indent: -999px;}
+        
+        #Business { background: url(images/section2.png) 50% 0 no-repeat; background-size: cover; height: 1080px; position: relative;}
+        #Business > .Business-First { width: 20%; height: 350px; position: absolute; left:10%; top:30%; background:rgba(3, 77, 152, 0.8)}
+        #Business > .Business-First > h2 { font-size: 50px; color:#f6891f; margin-left:5%; margin-top: 15%; margin-bottom: 10%;}
+        #Business > .Business-First > p { color:white; margin-left:5%; margin-top: 2%;}
+        #Business > .Business-Second { width: 17%; height: 350px; position: absolute; left:34%; top:35%; background: url(images/2thView01.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Second > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Second:hover { opacity: 0.6;}
+        #Business > .Business-Second:hover h3 { color:#f6891f; opacity: 1; margin-top: 50%;}
+        #Business > .Business-Third { width: 17%; height: 350px; position: absolute; left:52.5%; top:30%; background: url(images/2thView02.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Third > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Third:hover { opacity: 0.6;}
+        #Business > .Business-Third:hover h3 { color:#f6891f; opacity: 1; margin-top: 50%;}
+        #Business > .Business-Last { width: 17%; height: 350px; position: absolute; left:71%; top:35%; background: url(images/2thView03.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Last > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Last:hover { opacity: 0.6;}
+        #Business > .Business-Last:hover h3 { color:#f6891f; opacity: 1; margin-top: 50%;}
+        
+        #Global { background: url(images/section3.jpg)50% 0 no-repeat; background-size: cover; height: 1080px; position: relative;}
+        #Global > .Global-Text { width: 30%; height: 250px; background: rgba(3, 77, 152, 0.8); position: absolute; bottom: 5%; right: 5%;}
+        #Global > .Global-Text > h2 { font-size: 48px; color:#f6891f; margin-left: 3%; margin-top: 3%;}
+        #Global > .Global-Text > p { color:white; margin-left: 3%; margin-top: 6%; font-size: 20px;}
+        
+        #Promotion { height: 1080px; background: url(images/section4.png)50% 0 no-repeat; background-size: cover; position: relative;}
+        #Promotion > .Promotion-Title { position: relative; left:10%; top:15%; background:rgba(3, 77, 152, 0.8); width: 50%; padding: 3%;}
+        #Promotion > .Promotion-Title > h2 { font-size: 50px; color:#f6891f;}
+        #Promotion > .Promotion-Title > p { color:white;}
+        #Promotion > .Promotion-Box { position: relative; top:30%; width: 80%; margin: 0 auto;}
+        #Promotion > .Promotion-Box > ul { float: left; width: 20%; margin-right: 5%;}
+        #Promotion > .Promotion-Box > ul > .smallTitle { font-size: 32px;}
+        #Promotion > .Promotion-Box > ul > .smallLength { margin-top: 10%;}
+        #Promotion > .Promotion-Box > ul > li > a { color:#f6891f; }
+        
+        
+        
+        
+        .Global-Job > a { color:#abca41; text-shadow: 0px 0px 10px white;}
+        
+        footer { padding: 1%; background: black; color:white; text-align: right;}
+
+        
+        
+        
+        @media all and ( min-width:740px ) and ( max-width:1023px ) {
+            header > nav > ul > li {  font-size: 16px; }
+            #Banner #Banner-Text {  left:10%; padding-right: 5%;}
+            #Banner #Banner-Text > h1 { font-size: 68px; left:2.5%; right:0; }
+            #Banner #Banner-Text > h2 { left:2.5%; right:0; font-size: 28px; letter-spacing: 3px;}
+            #Banner #Banner-Text > p {  left:2.5%; right:0; font-size: 14px;}
+            
+            
+        #Business > .Business-First { width: 100%; height: 400px; left:0%; top:25%;}
+        #Business > .Business-First > h2 { margin-left:3%; margin-top: 3%; margin-bottom: 1.5%;}
+        #Business > .Business-First > p { margin-left:3%; margin-top: 0.5%;}
+        #Business > .Business-Second { width: 25%; height: 350px; position: absolute; left:5%; top:50%; background: url(images/2thView01.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Second > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Second:hover { opacity: 0.6;}
+        #Business > .Business-Second:hover h3 { color:#f6891f; opacity: 1; margin-top: 50%;}
+        #Business > .Business-Third { width: 25%; height: 350px; position: absolute; left:38%; top:50%; background: url(images/2thView02.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Third > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Third:hover { opacity: 0.6;}
+        #Business > .Business-Third:hover h3 { color:#f6891f; opacity: 1; margin-top: 50%;}
+        #Business > .Business-Last { width: 25%; height: 350px; position: absolute; left:70%; top:50%; background: url(images/2thView03.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Last > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Last:hover { opacity: 0.6;}
+        #Business > .Business-Last:hover h3 { color:#f6891f; opacity: 1; margin-top: 50%;}
+            
+            #Global > .Global-Text { width: 50%; height: 250px; background: rgba(3, 77, 152, 0.8); position: absolute; bottom: 5%; right: 5%;}
+            #Global > .Global-Text > h2 br { display: none;}
+        #Global > .Global-Text > h2 { font-size: 44px; color:#f6891f; margin-left: 3%; margin-top: 2%;}
+        #Global > .Global-Text > p { color:white; margin-left: 3%; margin-top: 3%; font-size: 16px;}
+            
+        #Promotion > .Promotion-Title { position: relative; left:10%; top:15%; background:rgba(3, 77, 152, 0.8); width: 5%; padding: 2%; }
+        #Promotion > .Promotion-Title > h2 { font-size: 50px; color:#f6891f; position: absolute;}
+        #Promotion > .Promotion-Title > p { color:white; margin-top: 10%; display: none;}
+        #Promotion > .Promotion-Box { position: relative; top:35%; width: 80%; margin: 0 auto;}
+        #Promotion > .Promotion-Box > ul { float: left; width: 45%; margin-right: 5%;}
+            #Promotion > .Promotion-Box > .Box-Third { margin-top: 5%;}
+            #Promotion > .Promotion-Box > .Box-Last { margin-top: 5%;}
+        #Promotion > .Promotion-Box > ul > .smallTitle { font-size: 32px;}
+        #Promotion > .Promotion-Box > ul > .smallLength { margin-top: 10%;}
+        #Promotion > .Promotion-Box > ul > li > a { color:#f6891f; }
+            
+        }
+        
+        @media all and ( min-width:500px ) and ( max-width:739px ) {
+            header > nav > ul > li {  font-size: 16px; width: 25%;}
+            header > nav > ul > .Logo { width: 100%;}
+            header > nav > ul > li:hover { background:white;}
+            header > nav > ul > li > ul { background: none;}
+            header > nav > ul > li > ul > li { float: none; width: 100%;}
+            #Banner #Banner-Text {  left:7%; top:40%; padding-left: 5%; padding-right: 5%;}
+            #Banner #Banner-Text > h1 { font-size:50px; left:2%;}
+            #Banner #Banner-Text > h2 { left:2%; right:0; font-size: 20px; letter-spacing: 2px;}
+            #Banner #Banner-Text > p { margin-top: 3%; left:2%; right:0; font-size: 12px;}
+            #Banner #Banner-Text > .HighLength { margin-top: 15%;}
+            #Banner #Banner-Text > .length { margin-bottom: 10%;}
+            #Banner #next { display: none;}
+            #Banner #pre { display: none;}
+            #Banner #buttonList li{ left:85%; top:-240px; display: block; z-index: 150;}
+            
+            #Business { height: 1150px;}
+            #Business > .Business-First { width: 100%; height: 200px; left:0%; top:0%;}
+        #Business > .Business-First > h2 { margin-left:3%; margin-top: 3%; margin-bottom: 1.5%;}
+        #Business > .Business-First > p { margin-left:3%; margin-top: 0.5%;}
+        #Business > .Business-Second { width: 100%; height: 300px; position: absolute; left:0%; top:15%; background: url(images/2thView01.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Second > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Second:hover { opacity: 0.6;}
+        #Business > .Business-Second:hover h3 { color:#f6891f; opacity: 1; margin-top: 18%;}
+        #Business > .Business-Third { width: 100%; height: 300px; position: absolute; left:0%; top:43.5%; background: url(images/2thView02.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Third > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Third:hover { opacity: 0.6;}
+        #Business > .Business-Third:hover h3 { color:#f6891f; opacity: 1; margin-top: 18%;}
+        #Business > .Business-Last { width: 100%; height: 300px; position: absolute; left:0%; top:72%; background: url(images/2thView03.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Last > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 0.1;}
+        #Business > .Business-Last:hover { opacity: 0.6;}
+        #Business > .Business-Last:hover h3 { color:#f6891f; opacity: 1; margin-top: 18%;}
+            
+            #Global > .Global-Text { width: 75%; height: 250px; background: rgba(3, 77, 152, 0.8); position: absolute; bottom: 50%; right: 5%;}
+            #Global > .Global-Text > h2 br { display: none;}
+        #Global > .Global-Text > h2 { font-size: 44px; color:#f6891f; margin-left: 3%; margin-top: 2%;}
+        #Global > .Global-Text > p { color:white; margin-left: 3%; margin-top: 3%; font-size: 16px;}
+            
+            #Promotion > .Promotion-Title { position: relative; left:10%; top:15%; background:rgba(3, 77, 152, 0.8); width: 5%; padding: 2%; }
+        #Promotion > .Promotion-Title > h2 { font-size: 50px; color:#f6891f; position: absolute;}
+        #Promotion > .Promotion-Title > p { color:white; margin-top: 10%; display: none;}
+        #Promotion > .Promotion-Box { position: relative; top:35%; width: 90%; margin: 0 auto;}
+        #Promotion > .Promotion-Box > ul { float: left; width: 45%; margin-right: 5%;}
+            #Promotion > .Promotion-Box > .Box-Third { margin-top: 5%;}
+            #Promotion > .Promotion-Box > .Box-Last { margin-top: 5%;}
+        #Promotion > .Promotion-Box > ul > .smallTitle { font-size: 32px;}
+        #Promotion > .Promotion-Box > ul > .smallLength { margin-top: 10%;}
+        #Promotion > .Promotion-Box > ul > li > a { color:#f6891f; }
+            
+        }
+        
+        @media all and ( max-width:499px ) {
+            header > nav > ul > li {  font-size: 16px; width: 25%;}
+            header > nav > ul > .Logo { width: 100%;}
+            header > nav > ul > li:hover { background:white;}
+            #Banner #Banner-Text {  left:0%; top:45%; padding-left: 5%; padding-right: 5%;}
+            #Banner #Banner-Text > h1 { font-size:40px; left:2%;}
+            #Banner #Banner-Text > h2 { left:2%; right:0; font-size: 20px; letter-spacing: 1px;}
+            #Banner #Banner-Text > p { margin-top: 5%; left:2%; right:0; font-size: 16px;}
+            #Banner #Banner-Text > .HighLength { margin-top: 15%;}
+            #Banner #Banner-Text > .length { margin-bottom: 10%;}
+            #Banner #next { display: none;}
+            #Banner #pre { display: none;}
+            #Banner #buttonList li{ left:80%; top:-250px; display: block; z-index: 150;}
+            
+            #Business { height: 1150px;}
+            #Business > .Business-First { width: 100%; height: 200px; left:0%; top:0%;}
+        #Business > .Business-First > h2 { margin-left:3%; margin-top: 3%; margin-bottom: 1.5%;}
+        #Business > .Business-First > p { margin-left:3%; margin-top: 0.5%;}
+        #Business > .Business-Second { width: 100%; height: 300px; position: absolute; left:0%; top:15%; background: url(images/2thView01.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Second > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 1; margin-top: 33%;}
+        #Business > .Business-Second:hover { opacity: 1;}
+        #Business > .Business-Second:hover h3 { color:#f6891f; opacity: 1; margin-top: 33%;}
+        #Business > .Business-Third { width: 100%; height: 300px; position: absolute; left:0%; top:43.5%; background: url(images/2thView02.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Third > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 1; margin-top: 33%;}
+        #Business > .Business-Third:hover { opacity: 1;}
+        #Business > .Business-Third:hover h3 { color:#f6891f; opacity: 1; margin-top: 33%;}
+        #Business > .Business-Last { width: 100%; height: 300px; position: absolute; left:0%; top:72%; background: url(images/2thView03.jpg)50% 0 no-repeat; background-size: cover;}
+        #Business > .Business-Last > a > h3 { text-align: center; font-size: 35px; color:white; opacity: 1; margin-top: 33%;}
+        #Business > .Business-Last:hover { opacity: 1;}
+        #Business > .Business-Last:hover h3 { color:#f6891f; opacity: 1; margin-top: 33%;}
+            
+            #Global { height: 500px;}
+            #Global > .Global-Text { width: 100%; height: 250px; background: rgba(3, 77, 152, 0.8); position: absolute; bottom: 30%; right: 0%;}
+            #Global > .Global-Text > h2 br { display: none;}
+        #Global > .Global-Text > h2 { font-size: 44px; color:#f6891f; margin-left: 3%; margin-top: 2%;}
+        #Global > .Global-Text > p { color:white; margin-left: 3%; margin-top: 3%; font-size: 16px;}
+            
+            #Promotion { height: 900px;}
+            #Promotion > .Promotion-Title { position: relative; left:10%; top:5%; background:rgba(3, 77, 152, 0.8); width: 5%; padding: 2%; }
+        #Promotion > .Promotion-Title > h2 { font-size: 50px; color:#f6891f; position: absolute;}
+        #Promotion > .Promotion-Title > p { color:white; margin-top: 10%; display: none;}
+        #Promotion > .Promotion-Box { position: relative; top:22%; width: 100%; margin: 0 auto;}
+        #Promotion > .Promotion-Box > ul { float: left; width: 95%; margin-left: 2.5%; margin-right: 2.5%;}
+            #Promotion > .Promotion-Box > .Box-First { margin-top: 7%;}
+            #Promotion > .Promotion-Box > .Box-Second { margin-top: 7%;}
+            #Promotion > .Promotion-Box > .Box-Third { margin-top: 7%;}
+            #Promotion > .Promotion-Box > .Box-Last { margin-top: 7%;}
+        #Promotion > .Promotion-Box > ul > .smallTitle { font-size: 32px;}
+        #Promotion > .Promotion-Box > ul > .smallLength { margin-top: 5%;}
+            #Promotion > .Promotion-Box > ul > li:nth-child(2) { font-size: 12px;}
+        #Promotion > .Promotion-Box > ul > li > a { color:#f6891f; }
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="nav">
+            <ul>
+               <li class="Logo"><img src="images/logo6.png" alt="신일기업 로고"></li>
+                <li class="CompanyInfo">기업정보
+                    <ul>
+                        <li class="ceo"><a href="hello.html">CEO 인사말</a></li>
+                        <li class="vision"><a href="vision.html">그룹비전</a></li>
+                    </ul>
+                </li>
+                
+                <li class="BusinessAreas">사업분야
+                    <ul>
+                        <li class="trading"><a href="FirstWork.html">Trading</a></li>
+                        <li class="operation"><a href="SecondWork.html">Operation</a></li>
+                        <li class="investment"><a href="ThirdWork.html">Investment</a></li>
+                    </ul>
+                </li>
+                <li class="PromotionPlace">홍보센터
+                    <ul>
+                        <li class="news"><a href="news.html">News</a></li>
+                        <li class="document"><a href="Volunteer.html">사회공헌</a></li>
+                    </ul>
+                </li>
+                <li class="Careers">인재채용
+                    <ul>
+                        <li class="office"><a href="interviewInfo.html">인사제도</a></li>
+                        <li class="choice"><a href="job.html">채용공고</a></li>
+                    </ul>
+                </li>
+            </ul> 
+        </nav>
+        
+    </header>
+    
+    <div id="wrap">
+        <Section id="Banner">
+           <div id="Banner-Text">
+               <h1>We Are Together</h1>
+               <h2>혼자가 아닌 함께 성장하는 기업</h2>
+               <p class="HighLength">저희 <strong>신일</strong>에선 그 누구도 넘어서지 못한 경계를 당신과 나란히 걸으며 </p>
+               <p class="length">앞선 기술력과 멈추지않을 성장동력으로 오늘도 한걸음 더 나아가길 희망합니다.</p>
+           </div>
+            <div id="brandVisual">
+            <ul>
+                <li class="visual01"><a href="#">배너1</a></li>
+                <li class="visual02"><a href="#">배너2</a></li>
+                <li class="visual03"><a href="#">배너3</a></li>
+            </ul>
+        </div>  
+        <div id="buttonList">
+            <ul>
+                <li class="on"><a href="#">버튼1</a></li>
+                <li><a href="#">버튼2</a></li>
+                <li><a href="#">버튼3</a></li>
+            </ul>
+        </div>
+        <div id="next"><a href="#"><img src="images/next_arrow_img.png" alt="배너 이미지"></a></div>
+        <div id="pre"><a href="#"><img src="images/prev_arrow_img.png" alt="배너 이미지"></a></div>
+        </Section>
+        
+        <Section id="Business">
+            <div class="Business-First">
+                <h2>Business</h2>
+                <p>신일기업은 지속 가능한 성장을 위해</p>
+                <p>다양한 사업을 추진하고 있습니다.</p>
+            </div>
+            
+                <div class="Business-Second">
+                    <a href="FirstWork.html"><h3>Trading</h3></a>
+                </div>
+                <div class="Business-Third">
+                    <a href="SecondWork.html"><h3>Operation</h3></a>
+                </div>
+                <div class="Business-Last">
+                    <a href="ThirdWork.html"><h3>Investment</h3></a>
+                </div>
+        </Section>
+        
+        <Section id="Global">
+            <div class="Global-Text">
+                <h2>Global <br> Network</h2>
+                <p class="Global-Job"><a href="job.html">신일과 함께 세계를 향해 나아가는 인재를 모집합니다.</a></p>
+            </div>
+        </Section>
+        
+        <Section id="Promotion">
+            <div class="Promotion-Title">
+                <h2>About Us</h2>
+                <p>소재의 무한한 가능성! 소재의 발전은 우리의 삶을 보다 풍요롭게 합니다.</p>
+            </div>
+            
+            <div class="Promotion-Box">
+                <ul class="Box-First">
+                    <li class="smallTitle">기업정보</li>
+                    <li class="smallLength">발전된 소재 기술이 인간의 삶을 풍요롭게 한다는 믿음 아래 인간을 향한 소재 기술을 연구합니다.</li>
+                    <li class="smallLength"><a href="hello.html">자세히 보기</a></li>
+                </ul>
+                <ul class="Box-Second">
+                    <li class="smallTitle">사업분야</li>
+                    <li class="smallLength">폴리에스터 섬유부터 슈퍼섬유, 산업자재용 소재까지 다양한 소재를 개발하고 있습니다.</li>
+                    <li class="smallLength"><a href="FirstWork.html">자세히 보기</a></li>
+                </ul>
+                <ul class="Box-Third">
+                    <li class="smallTitle">홍보센터</li>
+                    <li class="smallLength">더 좋은 소재 기술을 만들어 가는 신일
+우리 생활 곳곳에서 항상 함께하는 신일을 지금 만나보세요.</li>
+               <li class="smallLength"><a href="news.html">자세히 보기</a></li>
+                </ul>
+                <ul class="Box-Last">
+                    <li class="smallTitle">인재채용</li>
+                    <li class="smallLength">안전을 최우선에 두고
+신뢰를 바탕으로 끊임없이 도전하여
+탁월한 성과를 창출하는 인재</li>
+               <li class="smallLength"><a href="interviewInfo.html">자세히 보기</a></li>
+                </ul>
+            </div>
+        </Section>
+    </div>
+    
+    <footer id="footer">Copyright © Shinyil All Rights Reserved</footer>
+</body>
+</html>

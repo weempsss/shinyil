@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>해더</title>
+    <link rel="stylesheet" href="css/default.css">
+    
+    <style>
+        header { position: relative; width: 100%; background: white; z-index: 100;}
+        header > nav { position: absolute; left:0; top:0; width: 100%; z-index: 100;}
+        header > nav > ul::after { content: ""; display: block; clear: both;}
+        header > nav > ul:hover { background: white;}
+        header > nav > ul:hover li { color:#333; }
+        header > nav > ul { width: 100%; height: 80px;}
+        header > nav > ul > .Logo:hover { border: none;}
+        header > nav > ul > li:hover { color:#0018a8; border-bottom: 3px solid #f6891f; }
+        header > nav > ul > li { float: left; width: 20%; cursor: pointer; color:#333; font-size: 20px; text-align: center; height: 80px; line-height: 80px; }
+        header > nav > ul > li > ul { display: none; background: #a2a2a2; width: 100%; position: absolute; left:0;}
+        header > nav > ul > li > ul::after { content: ""; display: block; clear: both;}
+        header > nav > ul > li > ul > li { float: left; width: 33.3%;}
+        header > nav > ul > li > ul > li > a:hover { color:#f6891f;}
+        header > nav > ul > li:hover ul{ display: block; z-index: 250;}
+        
+        @media all and ( min-width:740px ) and ( max-width:1023px ) { 
+            header > nav > ul > li {  font-size: 16px; }
+        }
+        
+        @media all and ( min-width:500px ) and ( max-width:739px ) {
+            header > nav > ul > li {  font-size: 16px; width: 25%;}
+            header > nav > ul > .Logo { width: 100%;}
+            header > nav > ul > li:hover { background:white;}
+            header > nav > ul > li > ul { background: none;}
+            header > nav > ul > li > ul > li { float: none; width: 100%;}
+        }
+        
+        @media all and ( max-width:499px ) {
+            header > nav > ul > li {  font-size: 16px; width: 25%;}
+            header > nav > ul > .Logo { width: 100%;}
+            header > nav > ul > li:hover { background:white;}
+            header > nav > ul > li > ul { background: none;}
+            header > nav > ul > li > ul > li { float: none; width: 100%;}
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="nav">
+            <ul>
+               <li class="Logo"><img src="images/logo6.png" alt="신일기업 로고"></li>
+                <li class="CompanyInfo">기업정보
+                    <ul>
+                        <li class="ceo"><a href="#">CEO 인사말</a></li>
+                        <li class="vision"><a href="#">기업비전</a></li>
+                    </ul>
+                </li>
+                
+                <li class="BusinessAreas">사업분야
+                    <ul>
+                        <li class="trading"><a href="#">Trading</a></li>
+                        <li class="operation"><a href="#">Operation</a></li>
+                        <li class="investment"><a href="#">Investment</a></li>
+                    </ul>
+                </li>
+                <li class="PromotionPlace">홍보센터
+                    <ul>
+                        <li class="news"><a href="#">News</a></li>
+                        <li class="document"><a href="#">사회공헌</a></li>
+                    </ul>
+                </li>
+                <li class="Careers">인재채용
+                    <ul>
+                        <li class="office"><a href="#">인사제도</a></li>
+                        <li class="choice"><a href="#">채용공고</a></li>
+                    </ul>
+                </li>
+            </ul> 
+        </nav>
+        
+    </header>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>News</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--<script type="text/javascript" src="js/prefixfree.min.js"></script>-->
+     <script src="js/jquery-3.4.1.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+     
+     <script>
+         $(function() {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+             
+             $("a").click(function() {
+                toggleClass(".active");
+             });
+         });
+    </script>
+    
+    <style>
+        #top { background: url(images/news.jpg)50% 0 no-repeat; background-size: cover; height: 300px; position: relative; top:80px;}
+        #news { width: 80%; margin: 0 auto; margin-bottom: 5%;}
+        #news > h1 { text-align: center; margin-top: 12%; margin-bottom: 5%; color:#f6891f; font-size: 50px;}
+        #news > .box::after { content: ""; display: block; clear: both;}
+        #news > .box { border-top: 1px solid #40b7c7; padding-top: 2%; padding-bottom: 2%;}
+        #news > .box > div {float: left;}
+        #news > .box > .left {width: 12%; text-align: center;}
+        #news > .box > .left:hover { color:#0018a8; cursor: pointer;}
+        #news > .box > .right {width: 88%;}
+        #news > .boxed::after { content: ""; display: block; clear: both;}
+        #news > .boxed { border-top: 3px solid #0018a8; margin-top: 2%; padding-top: 2%; padding-bottom: 2%;}
+        #news > .boxed > div {float: left;}
+        #news > .boxed > .left {width: 12%; text-align: center;}
+        #news > .boxed > .left:hover { color:#0018a8; cursor: pointer;}
+        #news > .boxed > .right {width: 88%;}
+        #news > .numbers > ul { width: 25%; margin: 0 auto; margin-top: 5%;}
+        #news > .numbers > ul::after { content: ""; display: block; clear: both;}
+        #news > .numbers > ul > li { float: left; width: 20%;}
+        #news > .numbers > ul > li > a { color: #333; font-size: 24px;}
+        #news > .numbers > ul > li > a:active { color:#0018a8;}
+        
+        @media all and ( min-width:740px) and (max-width:1023px) {
+            #news { width: 90%; }
+            #news > h1 { margin-top: 15%;}
+        }
+        
+        @media all and ( min-width:500px) and (max-width:739px) {
+            #top { opacity: 0.5;}
+            #news > h1 { margin-top: 18%;}
+            #news > .box > .left { width: 100%; text-align: left;}
+            #news > .box > .left > p { display: none;}
+            #news > .box > .right { width: 100%;}
+            #news > .boxed > .left { width: 100%; text-align: left;}
+            #news > .boxed > .left > p { display: none;}
+            #news > .boxed > .right { width: 100%;}
+            
+            #news { width: 90%; }
+        }
+        
+        @media all and ( max-width:499px) {
+            #top { opacity: 0.5;}
+            #news > h1 { margin-top: 25%;}
+            #news > .box > .left { width: 100%; text-align: left;}
+            #news > .box > .left > p { display: none;}
+            #news > .box > .right { width: 100%;}
+            #news > .boxed > .left { width: 100%; text-align: left;}
+            #news > .boxed > .left > p { display: none;}
+            #news > .boxed > .right { width: 100%;}
+            
+            #news { width: 98%; }
+            h3 { font-size: 16px;}
+            p { font-size: 14px;}
+        }
+        
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+    <div id="wrap">
+      <div id="top"></div>
+      
+       <div id="news">
+           <h1>News</h1>
+           
+           <p> 총 31건의 게시물이 있습니다.</p>
+           
+           <div class="boxed">
+               <div class="left">
+                   <h2>07.10</h2>
+                   <p>2019</p>
+               </div>
+               <div class="right">
+                   <h3>무협 '2019년 전문무역상사의 날' 신일 기업 신규 지정</h3>
+                   <p>한국무역협회(회장 김영주)는 10일 서울 삼성동 트레이드타워에서 산업통상자원부와 공동으로 ‘2019년 전문무역상사의 날’을 개최하고 GS글로...</p>
+               </div>
+           </div>
+           
+           <div class="box">
+               <div class="left">
+                   <h2>06.26</h2>
+                   <p>2019</p>
+               </div>
+               <div class="right">
+                   <h3>GS그룹-사우디 아람코 '에너지 및 투자 분야' 업무협약 체결</h3>
+                   <p>GS는 지난 25일 서울 여의도 콘래드호텔에서 사우디아라비아 국영 석유회사인 아람코와의 사업협력을 위한 포괄적 업무협약(MOU)를 체결했다...</p>
+               </div>
+           </div>
+           
+           <div class="box">
+               <div class="left">
+                   <h2>05.08</h2>
+                   <p>2019</p>
+               </div>
+               <div class="right">
+                   <h3>신일기업, 1Q 영업익 153억 원…전년比 9.2%↑</h3>
+                   <p>신일기업(001250)은 연결 기준 지난 1분기 전년 동기 대비 9.2% 증가한 152억5900만 원의 영업이익을 기록했다고 8일 공시했다.</p>
+               </div>
+           </div>
+           
+           <div class="box">
+               <div class="left">
+                   <h2>03.02</h2>
+                   <p>2019</p>
+               </div>
+               <div class="right">
+                   <h3>GS '전기차 유통' 첫발</h3>
+                   <p>GS(078930)그룹이 전기차 유통 시장에 진출한다. 걸음마 단계인 전기차 유통 시장에 선제적으로 발을 들여놓아 시장 확대에 따른 ...</p>
+               </div>
+           </div>
+           
+           <div class="box">
+               <div class="left">
+                   <h2>01.13</h2>
+                   <p>2019</p>
+               </div>
+               <div class="right">
+                   <h3>신일기업, 작년 영업익 561억…16.9%↑</h3>
+                   <p>신일기업은 연결기준 지난해 영업이익이 약 561억원으로 전년 대비 16.9% 증가했다고 31일 공시했다. 매출액은 4조585억원으로...</p>
+               </div>
+           </div>
+           
+           <div class="box">
+               <div class="left">
+                   <h2>01.10</h2>
+                   <p>2019</p>
+               </div>
+               <div class="right">
+                   <h3>신일기업, 지난해 차입금 큰 폭 감소…유동차입금 비중 50%선</h3>
+                   <p>신일기업(대표 김태형)의 지난해 차입금 규모가 큰 폭 감소하고 총차입금에서 유동차입금이 차지하는 비중도 50%선으로 내려앉았다.</p>
+               </div>
+           </div>
+           
+           <div class="numbers">
+               <ul>
+                   <li><a href="#">1</a></li>
+                   <li><a href="#">2</a></li>
+                   <li><a href="#">3</a></li>
+                   <li><a href="#">4</a></li>
+                   <li><a href="#">5</a></li>
+               </ul>
+           </div>
+       </div>
+        
+        <footer id="footer"></footer>
+    </div>
+</body>
+</html>

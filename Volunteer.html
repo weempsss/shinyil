@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>사회봉사</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--<script type="text/javascript" src="js/prefixfree.min.js"></script>-->
+     <script src="js/jquery-3.4.1.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+     
+     <script>
+         $(function() {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+
+        });
+    </script>
+    
+    <style>
+        .show { background: url(images/surport.jpg)0 65% no-repeat; background-size: cover; height: 320px; position: relative; top:80px; width: 100%;}
+        h1 { margin-top: 10%; text-align: center; color:#f6891f;}
+        h2 { margin-top: 1%; text-align: center; color:#abca41;}
+        h3 { color:#f6891f; font-size: 28px; padding-bottom: 2%; padding-top: 2%;}
+        h4 { font-size: 20px; margin-top: 3%; text-indent: 10px; margin-bottom: 3%;}
+        h5 { text-align: left; margin-bottom: 3%; color:#abca41;}
+        .left > p { color:#c6c6c6; padding-bottom: 2%; border-bottom: 1px solid black;}
+        .right > .step > p { color:#c6c6c6; margin-bottom: 3%;}
+        #First::after { content: ""; display: block; clear: both;}
+        #Second::after { content: ""; display: block; clear: both;}
+        #Third::after { content: ""; display: block; clear: both;}
+        .left {width: 30%; margin-right: 5%; float: left; }
+        .right {width: 65%; float: right; }
+        #Volunteer { width: 60%; margin: 0 auto;}
+        section { margin-top: 10%; margin-bottom: 10%; border-top: 1px solid #34b6ce; border-bottom: 1px solid #34b6ce;}
+        img { margin-bottom: 3%; width: 50%;}
+        
+        .left > ul { margin-top: 5%;}
+        .left > ul > li { font-size: 18px; line-height: 50px;}
+        
+        @media all and (min-width:740px) and ( max-width:1023px) {
+            #Volunteer { width: 80%; }
+            img { width: 90%;}
+            h1 { margin-top: 15%; font-size: 28px;}
+            h2 { font-size: 18px}
+        }
+        
+        @media all and (min-width:500px) and ( max-width:739px) {
+            #Volunteer { width: 98%; }
+            header img { width: 20%;}
+            img { width: 80%;}
+            h1 { margin-top: 20%; font-size: 26px;}
+            h2 { font-size: 16px}
+            h3 { color:#f6891f; font-size: 24px; padding-bottom: 5%; padding-top: 5%;}
+            h4 { font-size: 18px; margin-top: 3%; text-indent: 10px; margin-bottom: 3%;}
+            h5 { text-align: right; margin-bottom: 3%; font-size: 14px;}
+            .left > ul > li { font-size: 14px;}
+            .left > p { color:#c6c6c6; padding-bottom: 2%; border-bottom: 1px solid black;}
+            .right > .step > p { color:#c6c6c6; margin-bottom: 3%; font-size: 14px;}
+            .left {width: 30%; margin-right: 5%; float: left; }
+            .right {width: 65%; float: right; }
+            section { margin-top: 10%; margin-bottom: 10%; border-top: 1px solid #34b6ce; border-bottom: 1px solid #34b6ce;}
+        }
+        
+        @media all and ( max-width:499px) {
+            #Volunteer { width: 98%; }
+            header img { width: 50%;}
+            img { width: 80%;}
+            h1 { margin-top: 30%; font-size: 20px;}
+            h2 { font-size: 12px}
+            h3 { color:#f6891f; font-size: 18px; padding-bottom: 5%; padding-top: 5%;}
+            h4 { font-size: 16px; margin-top: 3%; text-indent: 10px; margin-bottom: 3%;}
+            h5 { text-align: right; margin-bottom: 3%; font-size: 12px;}
+            .left > ul > li { font-size: 10px;}
+            .left > p { color:#c6c6c6; padding-bottom: 2%; border-bottom: 1px solid black;}
+            .right > .step > p { color:#c6c6c6; margin-bottom: 3%; font-size: 10px;}
+            .left {width: 30%; margin-right: 5%; float: left; }
+            .right {width: 65%; float: right; }
+            section { margin-top: 10%; margin-bottom: 10%; border-top: 1px solid #34b6ce; border-bottom: 1px solid #34b6ce;}
+        }
+        
+    </style>
+</head>
+<body>
+   <header id="header"></header>
+    <div id="wrap">
+      
+      <div class="show"></div>
+      
+      <h1>사회공헌</h1>
+      <h2>오늘 내가 남에게 배풀기 위해 했던 노력은 반드시 선물로 돌아온다.</h2>
+      
+      
+      <div id="Volunteer">
+          <section id="First">
+              <div class="left">
+                  <h3>Recruitment</h3>
+                  <p>진행예정</p>
+                  <ul>
+                      <li>사랑의 모금</li>
+                      <li>장애인 체육전 도우미</li>
+                  </ul>
+              </div>
+              
+              <div class="right">
+                  <div class="step">
+                      <h4>사랑의 모금</h4>
+                      <p>경제적으로 어려운 사람들을 위해 따뜻한 손길을 내밀어줍니다.</p>
+                      <img src="images/V1.jpg" alt="사랑의 모금" style="max-width: 600px;">
+                      <h5>2019-12</h5>
+                  </div>
+                  
+                  <div class="step">
+                      <h4>장애인 체육전 도우미</h4>
+                      <p>체육대회가 원활하게 진행될 수 있도록 성심성의껏 대회를 보조해 줄 사람들을 모집합니다.</p>
+                      <img src="images/V2.jpg" alt="장애인 체육대회 도우미" style="max-width: 600px;">
+                      <h5>2020-03</h5>
+                  </div>
+              </div>
+          </section>
+          
+          
+          <section id="Second">
+              <div class="left">
+                  <h3>Progress</h3>
+                  <p>진행중</p>
+                  <ul>
+                      <li>나이지리아 재능기부</li>
+                      <li>농촌 역군</li>
+                      <li>벽화마을 꾸미기</li>
+                  </ul>
+              </div>
+              
+              <div class="right">
+                  <div class="step">
+                      <h4>나이지리아 재능기부</h4>
+                      <p>가지고 있는 온갓 재능으로 저 머나먼 땅인 나이지리아에서 환경이 어려워 접혀있는 날개들을 펼쳐보세요</p>
+                      <img src="images/V3.jpg" alt="나이지리아 재능기부" style="max-width: 600px;">
+                      <h5>2019-04 ~</h5>
+                  </div>
+                  
+                  <div class="step">
+                      <h4>농촌 역군</h4>
+                      <p>신일에서 내려온 역군인당신은 인력이 부족한 시골마을에서 크나큰 힘이 됩니다.</p>
+                      <img src="images/V4.jpg" alt="농촌 역군" style="max-width: 600px;">
+                      <h5>2019-06 ~</h5>
+                  </div>
+                  
+                  <div class="step">
+                      <h4>벽화마을 꾸미기</h4>
+                      <p>낙후된 마을의 미관을 개선해 아름다운 문화거리를 조성하여 정기적 벽화그리기 봉사활동을 진행합니다.</p>
+                      <img src="images/V5.jpg" alt="벽화마을 꾸미기" style="max-width: 600px;">
+                      <h5>2019-07 ~</h5>
+                  </div>
+              </div>
+          </section>
+          
+          
+          <section id="Third">
+              <div class="left">
+                  <h3>Complete</h3>
+                  <p>진행완료</p>
+                  <ul>
+                      <li>성탄절 어린이집 공연</li>
+                      <li>사랑의 밥차</li>
+                  </ul>
+              </div>
+              
+              <div class="right">
+                  <div class="step">
+                      <h4>성탄절 어린이집 공연</h4>
+                      <p>당신의 특별한 재능으로 어린이들에게 잊지못할 기억을 선물하세요</p>
+                      <img src="images/V6.jpg" alt="성탄절 어린이집 공연" style="max-width: 600px;">
+                      <h5>2018-12-24</h5>
+                  </div>
+                  
+                  <div class="step">
+                      <h4>사랑의 밥차</h4>
+                      <p>경제적으로 빈곤한 사람들을 배부르게 먹일 수 있도록 최선을 다 하겠습니다.</p>
+                      <img src="images/V7.jpg" alt="사랑의 밥차" style="max-width: 600px;">
+                      <h5>2019-01-13 ~ 2019-06-07</h5>
+                  </div>
+              </div>
+          </section>
+      </div>
+       
+        <footer id="footer"></footer>
+    </div>
+</body>
+</html>

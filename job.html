@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Job</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--<script type="text/javascript" src="js/prefixfree.min.js"></script>-->
+     <script src="js/jquery-3.4.1.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    
+    <script>
+        $(function() {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+
+        });
+    </script>
+    
+    <style>
+        .Picture {background: url(images/careers3.jpg)0% 10% no-repeat; background-size: cover; height: 300px;}
+        #Careers { width: 60%; margin: 0 auto;}
+        
+        h1 { color:#0018a8; font-size: 30px;}
+        h2 { color:#3d3d3d; font-size: 20px;}
+        .Step0 { text-align: center; margin-top: 10%; margin-bottom: 10%;}
+        .Step0 > h1 { text-align: left; color:#0018a8;}
+        .Step0 > h2 { text-align: left; color:#3d3d3d;}
+        .Step0::after { content: ""; display: block; clear: both;}
+        .Step0 > .left {float:left; width: 40%; margin-top: 3%;}
+        .Step0 > .left > img { width: 100%;}
+        .Step0 > .right {float:right; width: 60%; text-align: left;}
+        .Step0 > .right > .LengthUp { margin-top: 4%;}
+        .Step0 > .right > h3 { text-align:center; margin-top: 6%; font-size: 18px; color:#34b6ce;}
+        .Step0 > .right > p { font-size: 14px; color:#3d3d3d; text-align:center; margin-top: 2%; font-weight: 500;}
+        #Step1 > ul { float: left; width: 33%; margin-top: 3%;}
+        #Step1 > ul > .smallTitle { color:#0018a8; font-weight: bold; font-size: 16px;}
+        #Step1 > ul > li { font-size: 13px;}
+        #Step2 { margin-top: 41%; }
+        #Step2:after { content: ""; display: block; clear: both;}
+        #Step2 > .LeftStep { width: 50%; float: left; text-align: center; margin-top: 5%;}
+        #Step2 > .RightStep { width: 50%; float: right; text-align: center; margin-top: 5%;}
+        #Step3 { margin-top: 10%; }
+        #Step3:after { content: ""; display: block; clear: both;}
+        #Step3 > div { width: 33.3%; float:left; margin-top: 3%;}
+        #Step3 > div > ul { text-indent: 10px;}
+        #Step3 > div > ul > li { margin-top: 3%;}
+        #Step3 > div > ul > .SpecialText { font-size: 18px; color:#34b6ce;}
+        .next { text-align: right; margin-top: 15%; margin-bottom: 10%;}
+        .next > p { font-size: 24px;}
+        
+        @media all and ( min-width:740px) and ( max-width:1023px) {
+            #Careers { width: 95%; margin: 0 auto;}
+        }
+        
+        @media all and ( min-width:500px) and ( max-width:739px) {
+            .Picture { height: 400px; opacity: 0.5;}
+            #Careers { width: 95%; margin: 0 auto;}
+            #Step1 > ul { float: none; width: 100%; margin-top: 3%; position: relative;}
+            #Step1 > ul > .smallTitle { color:#0018a8; font-weight: bold; font-size: 16px;}
+            #Step1 > ul > li { font-size: 13px;}
+            #Step1 > ul > .PlusText1 { position: absolute; left:40%; top:35%; font-size:18px;}
+            #Step1 > ul > .PlusText2 { position: absolute; left:40%; top:45%; font-size:18px;}
+            #Step1 > ul > .PlusText3 { position: absolute; left:40%; top:55%; font-size:18px;}
+            #Step1 > ul > .PlusText4 { position: absolute; left:40%; top:65%; font-size:18px;}
+            #Step2 { margin-top: 10%; }
+            #Step2 > .LeftStep { width: 100%; text-align: center; margin-top: 10%;}
+            #Step2 > .RightStep { width: 100%; text-align: center; margin-top: 10%;}
+            #Step3 > div { width: 50%; float:none; margin-top: 3%; position: relative; margin-top: 10%;}
+            #Step3 > div > ul { text-indent: 10px; position: absolute; left:80%; top:0%; width: 100%;}
+            #Step3 > div > ul > li { margin-top: 2%;}
+            
+        }
+        
+        @media all and ( max-width:499px) {
+
+            .Picture { height: 400px; opacity: 0.5;}
+            #Careers { width: 98%;}
+            h1 { font-size: 24px;}
+            h2 { font-size: 15px; margin-top: 2%;}
+            .Step0 > .left { float: none; width: 100%;}
+            .Step0 > .right { float: none; width: 100%;}
+            
+            #Step1 > ul { float: none; width: 100%; margin-top: 3%; position: relative;}
+            #Step1 > ul > .smallTitle { color:#0018a8; font-weight: bold; font-size: 16px;}
+            #Step1 > ul > li { font-size: 12px; color:#34b6ce;}
+            #Step1 > ul > li > img { opacity: 0.1;}
+            #Step1 > ul > .PlusText1 { position: absolute; left:15%; top:35%; font-size:18px;}
+            #Step1 > ul > .PlusText2 { position: absolute; left:15%; top:45%; font-size:18px;}
+            #Step1 > ul > .PlusText3 { position: absolute; left:15%; top:55%; font-size:18px;}
+            #Step1 > ul > .PlusText4 { position: absolute; left:15%; top:65%; font-size:18px;}
+            #Step2 { margin-top: 10%; }
+            #Step2 > .LeftStep { width: 100%; text-align: center; margin-top: 10%;}
+            #Step2 > .LeftStep > img { width: 80%;}
+            #Step2 > .RightStep { width: 100%; text-align: center; margin-top: 10%;}
+            #Step2 > .RightStep > img { width: 80%;}
+            #Step3 > div { width: 50%; float:none; margin-top: 3%; position: relative; margin-top: 10%;}
+            #Step3 > div > ul { text-indent: 10px; position: absolute; left:80%; top:0%; width: 100%;}
+            #Step3 > div > ul > li { margin-top: 2%; font-size: 11px;}
+            .next > p { font-size: 14px;}
+
+        }
+        
+    </style>
+
+</head>
+<body>
+   <header id="header"></header>
+   
+   <div id="wrap">
+   
+   <div class="Picture">
+   </div>
+    <div id="Careers">
+        <div class="Step0">
+           <h1>채용공고</h1>
+                <h2>신일은 직무별 특성에 맞는 인재채용을 실시합니다.</h2>
+            <div class="left">
+                <img src="images/career.jpg" alt="">
+            </div>
+            
+            <div class="right">
+               <h3>기업과 함께 성장할 수 있는 인재</h3>
+                <p class="LengthUp">집단적 사고도 중요하지만 개별적 창의성을</p>
+                  <p>존중하는 인재채용이 중요한 시대입니다.</p>
+                   <p>각각의 직무 특성에 맞춰 준비된 인재를 맞이</p>
+                   <p>하기 위해 한 사람, 한 사람을 위한 각 사별</p>
+                   <p class="LengthDown">맞춤형 인재채용을 반드시 진행해야 합니다.</p>
+            </div>
+        </div>
+        
+        <section id="Step1">
+            <h1>채용절차</h1>
+            <h2>미래를 위한 젊은 인재들에게 열린 기회의 장</h2>
+            
+            <ul>
+                <li class="smallTitle">01</li>
+                <li class="smallTitle">서류심사</li>
+                <li><img src="images/Icon0.png" alt="서류심사"></li>
+                <li class="PlusText1">지원자 개개인의 가치관이</li>
+                <li class="PlusText2">기업이 지향하는 가치관과</li>
+                <li class="PlusText3">얼마나 부합하는가 면밀히 검증</li>
+            </ul>
+            
+            <ul>
+                <li class="smallTitle">02</li>
+                <li class="smallTitle">필기전형</li>
+                <li><img src="images/Icon1.png" alt="필기전형"></li>
+                <li class="PlusText1">인지역량(Critical Thinking),</li>
+                <li class="PlusText2">실행역량(Situational Judgment),</li>
+                <li class="PlusText3">심층역량(Work Personality)을</li>
+                <li class="PlusText4">측정하는 종합역량 검사 실시</li>
+            </ul>
+            
+            <ul>
+                <li class="smallTitle">03</li>
+                <li class="smallTitle">면접전형</li>
+                <li><img src="images/Icon2.png" alt="면접전형"></li>
+                <li class="PlusText1">기업은 지원자의 가치관,성격특성,</li>
+                <li class="PlusText2">보유 역량의 수준 등을</li>
+                <li class="PlusText3">면밀히 검증하기 위하여</li>
+                <li class="PlusText4">체계적인 면접방식을 활용</li>
+            </ul>
+        </section>
+        <section id="Step2">
+            <h1>평가 및 보상</h1>
+            <h2>공정한 평가를 통해 구성원을 육성하고 성과에 기반한 보상을 제공</h2>
+            <div class="LeftStep"><img src="images/Icon3.png" alt="평가사진">
+            <p>보다 객관적이고 공정한 평가로 행동변화에 대한 동기부여</p>
+            </div>
+            <div class="RightStep"><img src="images/Icon4.png" alt="보상사진">
+            <p>역량과 업적에 따른 성과지향적 급여체계 운영</p>
+            </div>
+        </section>
+        <section id="Step3">
+            <h1>복리후생</h1>
+            <h2>Excellent of Working Life</h2>
+            
+            <div class="First">
+                <div class="Picture-Room"><img src="images/Icon5.png" alt="주택 및 경제적 지원"></div>
+                
+                    <ul>
+                        <li class="SpecialText">재산형성</li>
+                        <li>저축장려,우리사주조합 등</li>
+                        <li class="SpecialText">주택지원</li>
+                        <li>주택구입, 전세자금 지원</li>
+                        <li class="SpecialText">학비보조</li>
+                        <li>자녀학자금(중,고,대학생)</li>
+                    </ul>
+                
+            </div>
+            <div class="Second">
+                <div class="Picture-Room"><img src="images/Icon6.png" alt="생활편리"></div>
+                
+                    <ul>
+                        <li class="SpecialText">경조사 지원</li>
+                        <li>경조금</li>
+                        <li class="SpecialText">QML / 여가지원</li>
+                        <li>주5일 근무제</li>
+                        <li>휴양지 운영</li>
+                        <li>취미, 레저생활 지원</li>
+                    </ul>
+                
+            </div>
+            <div class="Third">
+                <div class="Picture-Room"><img src="images/Icon7.png" alt="건강 및 기타"></div>
+                
+                    <ul>
+                        <li class="SpecialText">건강관리</li>
+                        <li>건강진단, 의료보험</li>
+                        <li class="SpecialText">보험제도</li>
+                        <li>의료보험, 개인연금 등</li>
+                        <li class="SpecialText">기타복리후생</li>
+                        <li>퇴직관리 지원, 구내식당 운영 등</li>
+                    </ul>
+                
+            </div>
+        </section>
+        
+            <div class="next">
+               <p>채용담당자</p>
+                <p>qpl0073@daum.net</p>
+                <p>010-0073-5188</p>
+            </div>
+    </div>
+    
+    <footer id="footer"></footer>
+    </div>
+</body>
+</html>

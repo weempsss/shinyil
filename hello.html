@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CEO 인사말</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!--<script type="text/javascript" src="js/prefixfree.min.js"></script>-->
+     <script src="js/jquery-3.4.1.min.js"></script>
+     <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    
+    <script>
+        $(function() {
+            $("#footer").load("footer.html");
+
+        });
+    </script>
+    
+    <style>
+        header { position: relative; width: 100%; background: white; z-index: 100;}
+        header > nav { position: absolute; left:0; top:0; width: 100%; z-index: 100;}
+        header > nav > ul::after { content: ""; display: block; clear: both;}
+        header > nav > ul:hover { background: white;}
+        header > nav > ul:hover li { color:#333; }
+        header > nav > ul { width: 100%; height: 80px;}
+        header > nav > ul > .Logo:hover { border: none;}
+        header > nav > ul > li:hover { color:#0018a8; border-bottom: 3px solid #f6891f; }
+        header > nav > ul > li { float: left; width: 20%; cursor: pointer; color:#333; font-size: 20px; text-align: center; height: 80px; line-height: 80px; }
+        header > nav > ul > li > ul { display: none; background: #a2a2a2; width: 100%; position: absolute; left:0;}
+        header > nav > ul > li > ul::after { content: ""; display: block; clear: both;}
+        header > nav > ul > li > ul > li { float: left; width: 33.3%;}
+        header > nav > ul > li > ul > li > a:hover { color:#f6891f;}
+        header > nav > ul > li:hover ul{ display: block; z-index: 250;}
+        
+        #wrap { background: url(images/hello.png);}
+        #write { width: 80%; margin: 0 auto; padding-top: 10%;}
+        #write > h1 { text-align: center; margin-top: 5%;}
+        #write > h2 { text-align: center; padding-top: 5%; padding-bottom: 5%; border-top: 2px solid #abca41; border-bottom: 2px solid #abca41; margin-top: 5%; margin-bottom: 5%; color:#f6891f;}
+        #write > p { font-size: 20px; width: 90%; margin-left: 5%; color:#333;}
+        #write > .length { margin-top: 3%;}
+        #write > .lengthLow { margin-top: 3%; margin-bottom: 6%;}
+        
+        
+        @media all and (min-width:740px) and (max-width:1023px) {
+            header > nav > ul > li {  font-size: 16px; }
+            
+        #write { width: 80%; margin: 0 auto; padding-top: 12%;}
+        #write > h1 { text-align: center; margin-top: 8%;}
+        #write > h2 { text-align: center; padding-top: 8%; padding-bottom: 8%; border-top: 2px solid #abca41; border-bottom: 2px solid #abca41; margin-top: 8%; margin-bottom: 8%;}
+        #write > p { font-size: 20px; width: 95%; margin-left: 2.5%; }
+        #write > .length { margin-top: 5%;}
+        #write > .lengthLow { margin-top: 5%; margin-bottom: 10%;}
+        }
+        
+        @media all and (min-width:500px) and (max-width:739px) {
+            header > nav > ul > li {  font-size: 16px; width: 25%;}
+            header > nav > ul > .Logo { width: 100%;}
+            header > nav > ul > li:hover { background:white;}
+            
+            #write { width: 100%; padding-top: 26%;}
+            #write > h1 { text-align: left; margin-left: 5%; margin-top: 8%;}
+        #write > h2 { text-align: center; padding-top: 8%; padding-bottom: 8%; border-top: 2px solid #abca41; border-bottom: 2px solid #abca41; margin-top: 8%; margin-bottom: 8%; font-size: 17px;}
+        #write > p { font-size: 18px; width: 95%; margin-left: 2.5%;}
+        #write > .length { margin-top: 5%;}
+        #write > .lengthLow { margin-top: 5%; margin-bottom: 10%;}
+        }
+        
+        @media all and (max-width:499px) {
+            header > nav > ul > li {  font-size: 16px; width: 25%;}
+            header > nav > ul > .Logo { width: 100%;}
+            header > nav > ul > li:hover { background:white;}
+            
+            #write { width: 100%; padding-top: 38%;}
+            #write > h1 { text-align: left; margin-left: 5%; margin-top: 8%;}
+        #write > h2 { text-align: center; padding-top: 8%; padding-bottom: 8%; border-top: 2px solid #abca41; border-bottom: 2px solid #abca41; margin-top: 8%; margin-bottom: 8%; font-size: 17px;}
+        #write > p { font-size: 18px; width: 95%; margin-left: 2.5%; color:black;}
+        #write > .length { margin-top: 5%;}
+        #write > .lengthLow { margin-top: 5%; margin-bottom: 10%;}
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <header id="header">
+        <nav class="nav">
+            <ul>
+               <li class="Logo"><img src="images/logo6.png" alt="신일기업 로고"></li>
+                <li class="CompanyInfo">기업정보
+                    <ul>
+                        <li class="ceo"><a href="#">CEO 인사말</a></li>
+                        <li class="vision"><a href="#">연혁&amp;비전</a></li>
+                        <li class="idea"><a href="#">경영이념</a></li>
+                    </ul>
+                </li>
+                
+                <li class="BusinessAreas">사업분야
+                    <ul>
+                        <li class="trading"><a href="#">Trading</a></li>
+                        <li class="operation"><a href="#">Operation</a></li>
+                        <li class="investment"><a href="#">Investment</a></li>
+                    </ul>
+                </li>
+                <li class="PromotionPlace">홍보센터
+                    <ul>
+                        <li class="news"><a href="#">News</a></li>
+                        <li class="document"><a href="#">홍보자료</a></li>
+                    </ul>
+                </li>
+                <li class="Careers">인재채용
+                    <ul>
+                        <li class="office"><a href="#">인사제도</a></li>
+                        <li class="choice"><a href="#">채용공고</a></li>
+                    </ul>
+                </li>
+            </ul> 
+        </nav>
+    </header>
+    <div id="wrap">
+        
+        <div id="write">
+            <h1> CEO 인사말 </h1>
+            
+            <h2>"신일의 무대는 세계입니다. 창의적인 혁신과 도전으로 세계 정상의 기업으로 달리겠습니다."</h2>
+            
+            <p>신일기업 홈페이지를 찾아주신 여러분을 진심으로 환영합니다.</p>
+            <p>신일기업은 비상을 준비하는 신예 기업으로써, 전 세계를 무대로 활약하는 글로벌 기업입니다.</p>
+            
+            <p class="length">1989년 대림의 산하회사로 출발한 신일기업은 신일기업'대한민국의 전설의 시작'이라고 할 만큼 기대를 한몸에 받고있습니다.
+            경부고속도로, 서울지하철, 포항제철소, 국회의사당, 잠실올림픽 주경기장, 광화문광장, 이순신대교 등 대한민국을 대표하는 건설·건축물의 대부분이
+            신일의 손길을 거쳐 유지보수를 해왔습니다.</p>
+                   
+                   <p class="length">글로벌 무대에서 신일기업의 행보는 더욱 빨라지고 있습니다. 이제 신일기업은 설계·시공에 한정되었던 전통적인 건설사의 역할에서 벗어나
+            프로젝트 발굴·기획·투자·금융조달·시공·운영관리까지 전 프로세스를 아우르는 디벨로퍼 사업자로 도약하고 있습니다.
+            현재 신일기업은 미국, 사우디아라비아, 쿠웨이트, 중국, 베트남, 싱가폴, 브루나이 등 세계 각지에서 프로젝트를 성공적으로 진행하고 있습니다.
+            철저한 프로젝트 관리 능력과 차별화된 기술력, 오랜 시간 축적한 글로벌 네트워크와 사업 노하우는 세계 무대에서 신일을 인정하는 이유입니다.</p>
+                   
+                   <p class="lengthLow">앞으로도 신일기업은 끝없는 혁신과 창의적인 도전을 통해 세계 정상의 기업으로 거듭나겠습니다.
+            이와 더불어 고객과 사회로부터 존경 받는 기업 가치를 창출할 수 있도록 최선을 다하겠습니다.
+            항상 신일기업에 아낌없는 사랑과 관심을 가져주시는 여러분께 감사 드립니다.
+            진심의 기업, 신일기업은 앞으로 더 크고 풍요롭게 발전하는 모습을 보여드릴 것을 약속합니다.</p>
+        </div>
+       
+        <footer id="footer"></footer>
+    </div>
+</body>
+</html>
